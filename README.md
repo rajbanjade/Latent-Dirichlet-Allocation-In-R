@@ -6,8 +6,8 @@ Please go through the code. I hope that the comments in the code itself give you
 Additional details maybe available, if not here, at https://umdrive.memphis.edu/rbanjade/public/
 
 To run it, all you need is to:   
-    (a) provide an input file, each line containing a document and tokens separated by one or more whitespaces or tabs. A sample input file can be found along with this file. The test file contains texts from Microsoft Research Paraphrase (MSRP) corpus. I don't think it's a best corpus for topic modeling but I am using it just for demonstration purpose. You may test with some different input, preferably a bigger collection of documents.    
-    (b) set few parameters (optional). The default parameter values will be used otherwise.   
+    a. provide an input file, each line containing a document and tokens separated by one or more whitespaces or tabs. A sample input file can be found along with this file. The test file contains texts from Microsoft Research Paraphrase (MSRP) corpus. I don't think it's a best corpus for topic modeling but I am using it just for demonstration purpose. You may test with some different input, preferably a bigger collection of documents.    
+    b. set few parameters (optional). The default parameter values will be used otherwise.   
 
  I would suggest you review following topics before reading LDA.  
    (a) Distributions - Multinomial distribution, Dirichlet distribution  
