@@ -1,6 +1,6 @@
 # Latent-Dirichlet-Allocation-In-R
  This is an R implementation of 
- Latend Dirichlet Allocation (LDA) using (Collapsed) Gibbs Sampling.
+ Latent Dirichlet Allocation (LDA) using (Collapsed) Gibbs Sampling.
 
 Please go through the code. I hope that the comments in the code itself give you a walk through of it.
 Additional details maybe available, if not here, at https://umdrive.memphis.edu/rbanjade/public/
@@ -21,5 +21,5 @@ To run it, all you need is to:
 
   Thanks!
  
-  Rajendra Banjade, 2015  
+  Rajendra Banjade  
    https://umdrive.memphis.edu/rbanjade/public/  
