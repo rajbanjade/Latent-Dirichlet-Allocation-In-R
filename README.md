@@ -11,17 +11,17 @@ To run it, all you need is to:
 
 * set few parameters (optional). The default parameter values will be used otherwise.   
 
- I would suggest you review following topics before reading LDA.  
+I would suggest you review following topics before reading LDA.  
    (a) Distributions - Multinomial distribution, Dirichlet distribution  
    (b) Sampling - Gibbs Sampling  
    (c) Conjugate distributions  
 
- Main references:  
+Main references:  
      https://www.youtube.com/watch?v=DDq3OVp9dNA (David Blei's talk)  
      http://u.cs.biu.ac.il/~89-680/darling-lda.pdf  
 
 
-  Thanks!
+ Thanks!
  
-  Rajendra Banjade  
-   https://umdrive.memphis.edu/rbanjade/public/  
+ Rajendra Banjade  
+ https://umdrive.memphis.edu/rbanjade/public/  
