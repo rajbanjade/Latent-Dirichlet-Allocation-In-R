@@ -1,4 +1,4 @@
-# Latent-Dirichlet-Allocation-In-R
+# Latent Dirichlet Allocation (LDA)
  This is an R implementation of 
  Latent Dirichlet Allocation (LDA) using (Collapsed) Gibbs Sampling.
 
