@@ -1,23 +1,32 @@
-# Latend Dirichlet Allocation using (collapsed) Gibbs Sampling.
+# This is an R implementation of 
+# Latend Dirichlet Allocation (LDA) using (Collapsed) Gibbs Sampling.
 #
-# All you need is provide the input file, and set few parameters.
+# To run it, all you need is to: 
+#   (a) provide an input file, each line containing a document and tokens separated by one or more whitespaces or tabs. 
+#       A sample input file can be found along with this file.
+#   (b) set few parameters (optional). Otherwise, the default parameter values will be used. 
 #
-# Please visit https://umdrive.memphis.edu/rbanjade/public/ for updates (if any) and further documentation
-# about the code.
+# Please read the comments in the code itself which gives a quick walk through 
+# and see the readme file for further details.   
 #
-# Rajendra Banjade
-# Dec 2015
+# I would recommend you review following topics before reading LDA.
+# (a) Distributions - Multinomial distribution, Dirichlet distribution
+# (b) Sampling - Gibbs Sampling
+# (c) Conjugate distributions
 #
-# Main reference:
-#  https://www.youtube.com/watch?v=DDq3OVp9dNA
+# Rajendra Banjade, 2015
+# https://umdrive.memphis.edu/rbanjade/public/
+#
+# Main references:
+#  https://www.youtube.com/watch?v=DDq3OVp9dNA (David Blei's talk)
 #  http://u.cs.biu.ac.il/~89-680/darling-lda.pdf 
 ##############################
 
 # using hash package (https://cran.r-project.org/web/packages/hash/hash.pdf)
 library(hash)
 
-#dataFile <- "c:/Users/Rajendra/workspace/RCodes/LDAUsingGibbsSampling/testdata.txt"
-dataFile <- "c:/Users/Rajendra/workspace/RCodes/LDAUsingGibbsSampling/msr_train_lda_lemmatized.txt"
+# Input file.
+dataFile <- "<path to file>/lda-test-input.txt"
 
 
 ####### Hyper parameters. User can set different values.#############
@@ -99,7 +108,7 @@ for (d in 1:length(lines)){
 sprintf("Total number of words: %i, Vocabulary size (unique words): %i", N, V)
 
 
-# release memory used to store documents as lines
+# Reset lines variable (it is not required anymore and possibly release some memory early).
 lines <- ""; 
 
 #
@@ -122,6 +131,7 @@ for (d in 1:length(documents)){
   for (wd in 1: length(docWords)) {
     # randomly set a topic (1:K)
     wordId <- docWords[[wd]]
+	# draw a sample from a multinomial distribution
     topic <- sample(K, 1)
     docWordTopics[[wd]] <- topic
     ndkMatrix[d,topic] <- ndkMatrix[d,topic] + 1
@@ -174,9 +184,9 @@ for(it in 1:niters) {
 
 
 #
-############## calculate thetas and phis ##################################
+############## calculate theta and phi matrics ##################################
 phi <- matrix(nrow=K, ncol = V)
-#thetas <- matrix(nrow=D, ncol=K)
+#theta <- matrix(nrow=D, ncol=K)
 
 # calculate phi
 for(k in 1:K) {
@@ -190,6 +200,10 @@ for(k in 1:K) {
   for(v in 1:V) {
     phi[k,v] <- (nkwMatrix[v, k] + beta)/nzw
   }
+ 
+# calculate theta matrix 
+# tbd
+  
 }
 
 ############# print topics words (top x words out of V) ##################################.
@@ -200,7 +214,12 @@ for(k in 1:K) {
 displayWordsPerTopic <- 10
 finalWordTopic <- list()
 finalTopicWords <- list()
-for (k in 5:5) {
+#
+# topic to store in finalWordTopic and finalTopicWords
+# The following code can be modified little bit and iterated over all topics
+# for now, only one topic data is stored.
+k <- 5
+#for (k in 1:5) {  	
   # get the index of words in V in the decreasing order of their probabilities of being in topic k
   wordIndices <- order(phi[k,, drop=FALSE], decreasing=TRUE)
   #sprintf("Topic id: %i",k)
@@ -212,10 +231,12 @@ for (k in 5:5) {
     finalWordTopic[[idx]]<- prob
     finalTopicWords[[idx]] <- rdict[[as.character(wordId)]]
   }
-}
+#}
 
-#fileConn<-file("output.txt")
-#writeLines(c("Hello","World"), fileConn)
+#The output can be saved to file.
+#fileConn<-file("topic-output.txt")
+#writeLines(c("LDA Output","Topics and for each topic, print distribution over top x most probable words"), fileConn)
+# ...
 #close(fileConn)
 
 
