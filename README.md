@@ -10,10 +10,10 @@ To run it, all you need is to:
         A sample input file can be found along with this file.
     (b) set few parameters (optional). Otherwise, the default parameter values will be used. 
 
- I would suggest you review following topics before reading LDA.
-   (a) Distributions - Multinomial distribution, Dirichlet distribution
-   (b) Sampling - Gibbs Sampling
-   (c) Conjugate distributions
+ I would suggest you review following topics before reading LDA.  
+   (a) Distributions - Multinomial distribution, Dirichlet distribution  
+   (b) Sampling - Gibbs Sampling  
+   (c) Conjugate distributions  
 
  Main references:
      https://www.youtube.com/watch?v=DDq3OVp9dNA (David Blei's talk)
