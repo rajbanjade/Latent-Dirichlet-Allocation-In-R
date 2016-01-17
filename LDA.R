@@ -26,7 +26,7 @@
 library(hash)
 
 # Input file.
-dataFile <- "<path to file>/lda-test-input.txt"
+dataFile <- "<path to file>/lda-test-input-msrp.txt"
 
 
 ####### Hyper parameters. User can set different values.#############
